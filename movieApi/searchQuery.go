@@ -13,25 +13,33 @@ import (
 const apiKeyParameter string = "apikey"
 const idParameter string = "i"
 
+// Server contains the data needed to talk to the backend server
 type Server struct {
 	apikey string
 	host   string
 }
 
+// NewServer creates a new server configuration
 func NewServer(apikey, host string) Server {
 	return Server{
 		apikey: apikey,
 		host:   host,
 	}
 }
+
+// RefactorSearch takes a URL and refactors it to pass through a search (not a detail)
+// query to the backend
 func (m *Server) RefactorSearch(q *url.URL) url.URL {
 	return refactorSearchUrl(q, m.host, m.apikey)
 }
 
+// RefactorDetail takes a URL and refactors it to pass through a detail query
+// to the backend
 func (m *Server) RefactorDetail(q *url.URL) url.URL {
 	return refactorDetailUrl(q, m.host, m.apikey)
 }
 
+// refactorSearchUrl adds the api key parameter, keeping the other search parameters
 func refactorSearchUrl(incomingQuery *url.URL, destinationHost, apikey string) url.URL {
 	result := *incomingQuery
 	result.Host = destinationHost
@@ -42,6 +50,7 @@ func refactorSearchUrl(incomingQuery *url.URL, destinationHost, apikey string) u
 	return result
 }
 
+// refactorSearchUrl adds the api key parameter and extracts the detail id from the path
 func refactorDetailUrl(incomingQuery *url.URL, destinationHost, apikey string) url.URL {
 	result := *incomingQuery
 	result.Host = destinationHost
@@ -65,6 +74,7 @@ func (m *Server) Detail(query *url.URL) (string, error) {
 	return m.retrieveResults(url)
 }
 
+// retrieveResults actually retrieves the results from the remote server
 func (m *Server) retrieveResults(url url.URL) (string, error) {
 	s := url.String()
 	res, err := http.Get(s)
