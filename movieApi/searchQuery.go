@@ -45,16 +45,23 @@ func refactorSearchUrl(incomingQuery *url.URL, destinationHost, apikey string) u
 func refactorDetailUrl(incomingQuery *url.URL, destinationHost, apikey string) url.URL {
 	result := *incomingQuery
 	result.Host = destinationHost
+	result.Scheme = "http"
 	query := url.Values{}
 	pathElements := strings.Split(incomingQuery.Path, "/")
 	query.Add(idParameter, pathElements[len(pathElements)-1])
 	query.Add(apiKeyParameter, apikey)
 	result.RawQuery = query.Encode()
+	result.Path = ""
 	return result
 }
 
 func (m *Server) Search(query *url.URL) (string, error) {
 	url := m.RefactorSearch(query)
+	return m.retrieveResults(url)
+}
+
+func (m *Server) Detail(query *url.URL) (string, error) {
+	url := m.RefactorDetail(query)
 	return m.retrieveResults(url)
 }
 
