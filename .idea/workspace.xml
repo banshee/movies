@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f5f560f-2f40-4c0e-b2f0-3a2c582e8406" name="Changes" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movieApi/searchQuery.go" beforeDir="false" afterPath="$PROJECT_DIR$/movieApi/searchQuery.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movieApi/searchQuery_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/movieApi/searchQuery_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,22 +108,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/movieApi/searchQuery_test.go</url>
-          <line>10</line>
+          <line>26</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/movieApi/searchQuery.go</url>
-          <line>70</line>
+          <line>80</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/movieApi/searchQuery.go</url>
-          <line>59</line>
+          <line>68</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/movieApi/searchQuery.go</url>
-          <line>63</line>
+          <line>72</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
